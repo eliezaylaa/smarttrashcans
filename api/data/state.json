@@ -1,0 +1,17 @@
+{
+  "trashcans": {
+    "1": {
+      "id": 1,
+      "value": 3,
+      "state": "full"
+    },
+    "2": {
+      "id": 2,
+      "state": "normal"
+    },
+    "3": {
+      "id": 3,
+      "state": "closed"
+    }
+  }
+}
