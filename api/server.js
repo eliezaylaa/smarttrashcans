@@ -24,8 +24,8 @@ const saveState = (state) => {
 
 const calculateState = (id, value) => {
   if (id == 1) {
-    if (value > 15) return "empty";
-    if (value > 5) return "half_full";
+    if (value > 6) return "empty";
+    if (value >= 3) return "half_full";
     return "full";
   }
   if (id == 2) {
@@ -34,25 +34,34 @@ const calculateState = (id, value) => {
     return "fallen";
   }
   if (id == 3) {
-    if (value > 800) return "closed";
-    if (value > 400) return "half_open";
+    if (value < 90) return "closed";
+    if (value < 700) return "half_open";
     return "open";
   }
 };
-
-app.get("/sensor", (req, res) => {
-  const { id, value, key } = req.query;
+app.get("/sensors", (req, res) => {
+  const { id1, id2, id3, key } = req.query;
   if (key !== "epitech2026") {
     return res.status(401).json({ error: "Invalid key" });
   }
   const state = loadState();
-  state.trashcans[id] = {
-    id: parseInt(id),
-    value: parseFloat(value),
-    state: calculateState(parseInt(id), parseFloat(value)),
+  state.trashcans[1] = {
+    id: 1,
+    value: parseFloat(id1),
+    state: calculateState(1, parseFloat(id1)),
+  };
+  state.trashcans[2] = {
+    id: 2,
+    value: parseFloat(id2),
+    state: calculateState(2, parseFloat(id2)),
+  };
+  state.trashcans[3] = {
+    id: 3,
+    value: parseFloat(id3),
+    state: calculateState(3, parseFloat(id3)),
   };
   saveState(state);
-  res.json({ success: true, state: state.trashcans[id] });
+  res.json({ success: true });
 });
 
 app.get("/status", (req, res) => {

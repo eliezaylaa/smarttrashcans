@@ -2,8 +2,8 @@
   "trashcans": {
     "1": {
       "id": 1,
-      "value": 8,
-      "state": "half_full"
+      "value": 802,
+      "state": "empty"
     },
     "2": {
       "id": 2,
@@ -12,7 +12,7 @@
     },
     "3": {
       "id": 3,
-      "value": 764,
+      "value": 679,
       "state": "half_open"
     }
   }
