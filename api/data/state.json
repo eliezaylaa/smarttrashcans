@@ -2,16 +2,18 @@
   "trashcans": {
     "1": {
       "id": 1,
-      "value": 3,
-      "state": "full"
+      "value": 8,
+      "state": "half_full"
     },
     "2": {
       "id": 2,
+      "value": 0,
       "state": "normal"
     },
     "3": {
       "id": 3,
-      "state": "closed"
+      "value": 764,
+      "state": "half_open"
     }
   }
 }
